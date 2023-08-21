@@ -35,45 +35,6 @@ class _MyAppState extends State<MyApp> {
             backgroundColor: Colors.transparent,
             shadowColor: Colors.transparent,
             title: Text(titles[currentPageIndex], style: TextStyle(color: Colors.black, fontSize: 24, fontWeight: FontWeight.w700),)),
-            // body: ListView.builder(
-            //   padding: EdgeInsets.all(0),
-            //   itemCount: 3,
-            //   itemBuilder: (_, index) {
-            //     return Container(
-            //       color: Colors.amber[colorCodes[index]],
-            //       child: Center(
-            //         child: Text('Entry ${entries[index]}'),
-            //       ),
-            //       width:  500,
-            //       height: 500,
-            //     );
-            //   },
-            // ),
-        // body: ListView(
-        //   scrollDirection: Axis.horizontal,
-        //   children: [
-        //     Container(
-        //       color: Colors.green,
-        //       width: 720,
-        //       height: 200,
-        //     ),
-        //     Container(
-        //       color: Colors.yellow,
-        //       width: 1000,
-        //       height: 200,
-        //     ),
-        //     Container(
-        //       color: Colors.red,
-        //       width: 1000,
-        //       height: 200,
-        //     ),
-        //     Positioned(
-        //       child: Icon(Icons.verified),
-        //       top: 25,
-        //       left: 25,
-        //     ),
-        //   ],
-        // ),
       body: [ElevatedButton(
         child: Text(titles[currentPageIndex]),
         onPressed: () {

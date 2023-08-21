@@ -1,4 +1,4 @@
-package com.example.todo_flutter
+package com.example.birtu_fitness
 
 import io.flutter.embedding.android.FlutterActivity
 
