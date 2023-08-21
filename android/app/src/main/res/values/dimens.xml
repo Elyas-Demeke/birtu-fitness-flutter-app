@@ -1,0 +1,4 @@
+<resources>
+    <dimen name="content_animation_margin_start">30dp</dimen>
+    <dimen name="content_animation_margin_end">10dp</dimen>
+  </resources>
