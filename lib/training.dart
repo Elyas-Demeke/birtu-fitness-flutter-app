@@ -11,8 +11,8 @@ class Training extends StatefulWidget {
 class _TrainingState extends State<Training> {
 
   var items = [
-    Workout('Dubai Mall Food Court', Color(0xff6DC8F3), Color(0xff73A1F9),
-        4.4, 'Dubai · In The Dubai Mall', 'Cosy · Casual · Good for kids'),
+    Workout('Lower Body Workout', Color(0xff6DC8F3), Color(0xff73A1F9),
+        4.4, 'Dubai · In The Dubai Mall', '7 excercises'),
     Workout('Hamriyah Food Court', Color(0xffFFB157), Color(0xffFFA057), 3.7,
         'Sharjah', 'All you can eat · Casual · Groups'),
     Workout('Gate of Food Court', Color(0xffFF5B95), Color(0xffF8556D), 4.5,
