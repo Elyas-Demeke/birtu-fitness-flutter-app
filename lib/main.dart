@@ -1,5 +1,6 @@
 import 'package:birtu_fitness/Training.dart';
 import 'package:birtu_fitness/custom.dart';
+import 'package:birtu_fitness/excercises.dart';
 
 import 'aboutScreen.dart';
 import 'splash.dart';
@@ -64,11 +65,13 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _count = 20, _currentPageIndex = 0; 
-  String currentPage = 'training';
+  int _currentPageIndex = 0; 
+  // this is mimic custom workout plans being empty or not
+  final bool _customWorkoutPlanExists = false;
 
   List<String> titles = ['ስልጠናዎች', 'የራስዎ', 'እንቅስቃሴዎች', 'ሪፖርት', 'እኔ'];
 
+  @override
   void initState() {
     super.initState();
   }
@@ -78,9 +81,9 @@ class _HomeScreenState extends State<HomeScreen> {
       case 0:
         return const Training();
       case 1:
-        return const Custom();
+        return Custom( customWorkoutPlanExists: _customWorkoutPlanExists);
       case 2:
-        return Text('This is the እንቅስቃሴዎች screen');
+        return const Excercises();
       case 3:
         return Text('This is the ሪፖርት screen');
       case 4:
@@ -89,7 +92,44 @@ class _HomeScreenState extends State<HomeScreen> {
         return Text('Error occoured tracking current page screen');
     }
   }
-
+  _getFloatingButton() {
+    if (_currentPageIndex == 1 && !_customWorkoutPlanExists) {
+      return SizedBox(
+        width: 140,
+        height: 43,
+        child: FloatingActionButton(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(100),
+          
+          ),
+          child: const Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text('+', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w300)),
+              SizedBox(width: 5),
+              Text('አዲስ',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w900)),
+            ],
+          ),
+          onPressed: () {
+            setState(() {
+              // _count++;
+            });
+          },
+        ),
+      );
+    } else if (_currentPageIndex == 2) {
+      return FloatingActionButton(
+        backgroundColor: Colors.black,
+        child: const Icon(Icons.add),
+        onPressed: () {
+          setState(() {
+            // _count++;
+          });
+        },
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -112,14 +152,7 @@ class _HomeScreenState extends State<HomeScreen> {
             margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
           )),
           body: _getBody(),
-      // floatingActionButton: FloatingActionButton(
-      //     child: const Icon(Icons.add),
-      //     onPressed: () {
-      //       setState(() {
-      //         _count++;
-      //       });
-      //     },
-      //   ),
+          floatingActionButton: _getFloatingButton(),
       bottomNavigationBar: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(20)),
