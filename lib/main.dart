@@ -67,7 +67,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _currentPageIndex = 0; 
   // this is mimic custom workout plans being empty or not
-  final bool _customWorkoutPlanExists = false;
+  final bool _customWorkoutPlanExists = true;
 
   List<String> titles = ['ስልጠናዎች', 'የራስዎ', 'እንቅስቃሴዎች', 'ሪፖርት', 'እኔ'];
 
@@ -93,7 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
   _getFloatingButton() {
-    if (_currentPageIndex == 1 && !_customWorkoutPlanExists) {
+    if (_currentPageIndex == 1 && _customWorkoutPlanExists) {
       return SizedBox(
         width: 140,
         height: 43,

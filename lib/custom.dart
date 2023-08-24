@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Custom extends StatefulWidget {
-  bool  customWorkoutPlanExists = true;
+  bool  customWorkoutPlanExists = false;
 
  Custom({super.key,  required this.customWorkoutPlanExists});
 
@@ -10,11 +10,16 @@ class Custom extends StatefulWidget {
 }
 
 class _CustomState extends State<Custom> {
-  List workoutPlans = [];
+   bool _customWorkoutPlanExists = false;
+   @override
+  void initState() {
+    super.initState();
+    _customWorkoutPlanExists = widget.customWorkoutPlanExists;
+  }
   @override
   Widget build(BuildContext context) {
     // check if user has existing custom workout plans and show two different pages based on that.
-    if(widget.customWorkoutPlanExists) {
+    if(!_customWorkoutPlanExists) {
       return Container(
         margin: const EdgeInsets.all(20),
         child: Row(
