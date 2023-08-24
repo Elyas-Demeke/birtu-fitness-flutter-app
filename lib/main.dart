@@ -183,7 +183,7 @@ final ThemeData myappTheme = ThemeData(
       if (state.contains(MaterialState.selected)) {
         return const TextStyle(color: Colors.blue, letterSpacing: .5);
       }
-      return const TextStyle(color: Colors.black, fontSize: 12);
+      return const TextStyle(color: Colors.black);
     }),
   ),
 );
