@@ -25,25 +25,6 @@ class _BodyPartState extends State<BodyPart> {
           children: <Widget>[
             // background
             InkWell(
-              child: AnimatedContainer(
-              duration: const Duration(milliseconds: 300),
-              height: 210,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(_borderRadius),
-                color: _containerColor
-                // gradient: LinearGradient(colors: [
-                //   item.startColor,
-                //   item.endColor
-                // ], begin: Alignment.topLeft, end: Alignment.bottomRight),
-                // boxShadow: [
-                //   BoxShadow(
-                //     color: item.endColor,
-                //     blurRadius: 12,
-                //     offset: Offset(0, 6),
-                //   ),
-                // ],
-              ),
-            ),
               onTapDown: (details) {                
                 setState(() {
                   _containerColor = const Color.fromARGB(255, 199, 201, 214);
@@ -68,20 +49,17 @@ class _BodyPartState extends State<BodyPart> {
                   _containerColor = const Color.fromARGB(255, 199, 201, 214);
                 });
               },
+              child: AnimatedContainer(
+              duration: const Duration(milliseconds: 300),
+              height: 210,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(_borderRadius),
+                color: _containerColor
+              ),
+            ),
               
               
             ),
-            // background right side shadder
-            // Positioned(
-            //   right: 0,
-            //   bottom: 0,
-            //   top: 0,
-            //   child: CustomPaint(
-            //     size: const ui.Size(100, 150),
-            //     painter: CustomCardShapePainter(_borderRadius,
-            //         item.startColor, item.endColor),
-            //   ),
-            // ),
 
             // content
             Positioned.fill(
@@ -104,7 +82,7 @@ class _BodyPartState extends State<BodyPart> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 Text(
-                                  widget.item.name,
+                                  widget.item.workoutName,
                                   style: const TextStyle(
                                     color: Colors.black,
                                     fontFamily: 'Avenir',
@@ -113,8 +91,8 @@ class _BodyPartState extends State<BodyPart> {
                                   ),
                                 ),
                                 const SizedBox(height: 2),
-                                Text(
-                                  widget.item.category,
+                                Text(                                  
+                                  "${widget.item.numberOfExcercises.toInt()} excercises",
                                   style: const TextStyle(
                                       color: Colors.black,
                                       fontFamily: 'Avenir',
@@ -301,23 +279,22 @@ class _BodyPartState extends State<BodyPart> {
 }
 
 class Workout {
-  final String name;
-  final String category;
-  final String location;
-  final double rating;
-  final Color startColor;
-  final Color endColor;
+  // final String name;
+  // final String category;
+  // final String location;
+  // final double rating;
+  // final Color startColor;
+  // final Color endColor;
 
-  /* Main app fields
   final String workoutName;
   final double numberOfExcercises;
-  final Array firstThreeExcercises; // elements will be objects with excercise and sets and reps as key value pairs
+  final List<dynamic> firstThreeExcercises; // elements will be objects with excercise and sets and reps as key value pairs
   final String workingMuscleImage;
+  /* Main app fields
 
   */
 
-  Workout(this.name, this.startColor, this.endColor, this.rating, this.location,
-      this.category /*, this.workoutName, this.numberOfExcercises, this.firstThreeExcercises, this.workingMuscleImage*/);
+  Workout(this.workoutName, this.numberOfExcercises, this.firstThreeExcercises, this.workingMuscleImage);
 }
 
 class CustomCardShapePainter extends CustomPainter {

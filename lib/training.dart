@@ -11,22 +11,14 @@ class Training extends StatefulWidget {
 class _TrainingState extends State<Training> {
 
   var items = [
-    Workout('Lower Body Workout', Color(0xff6DC8F3), Color(0xff73A1F9),
-        4.4, 'Dubai · In The Dubai Mall', '7 excercises'),
-    Workout('Hamriyah Food Court', Color(0xffFFB157), Color(0xffFFA057), 3.7,
-        'Sharjah', 'All you can eat · Casual · Groups'),
-    Workout('Gate of Food Court', Color(0xffFF5B95), Color(0xffF8556D), 4.5,
-        'Dubai · Near Dubai Aquarium', 'Casual · Groups'),
-    Workout('Express Food Court', Color(0xffD76EF5), Color(0xff8F7AFE), 4.1,
-        'Dubai', 'Casual · Good for kids · Delivery'),
-    Workout('BurJuman Food Court', Color(0xff42E695), Color(0xff3BB2B8), 4.2,
-        'Dubai · In BurJuman', '...'),
-    Workout('BurJuman Food Court', Color(0xff42E695), Color(0xff3BB2B8), 4.2,
-        'Dubai · In BurJuman', '...'),
-    Workout('BurJuman Food Court', Color(0xff42E695), Color(0xff3BB2B8), 4.2,
-        'Dubai · In BurJuman', '...'),
-    Workout('BurJuman Food Court', Color(0xff42E695), Color(0xff3BB2B8), 4.2,
-        'Dubai · In BurJuman', '...'),
+    Workout('Lower Body Workout', 7, [{"test": '"test"'}],'image/link'),
+    Workout('Hamriyah Food Court', 6, [{"test": '"test"'}],'image/link'),
+    Workout('Gate of Food Court', 4, [{"test": '"test"'}],'image/link'),
+    Workout('Express Food Court', 5, [{"test": '"test"'}],'image/link'),
+    Workout('BurJuman Food Court', 4, [{"test": '"test"'}],'image/link'),
+    Workout('BurJuman Food Court', 6, [{"test": '"test"'}],'image/link'),
+    Workout('BurJuman Food Court', 7, [{"test": '"test"'}],'image/link'),
+    Workout('BurJuman Food Court', 6, [{"test": '"test"'}],'image/link'),
   ];
   @override
   Widget build(BuildContext context) {
