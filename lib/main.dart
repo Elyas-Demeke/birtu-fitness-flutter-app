@@ -1,4 +1,5 @@
 import 'package:birtu_fitness/Training.dart';
+import 'package:birtu_fitness/custom.dart';
 
 import 'aboutScreen.dart';
 import 'splash.dart';
@@ -77,7 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
       case 0:
         return const Training();
       case 1:
-        return Text('This is the የራስዎ screen');
+        return const Custom();
       case 2:
         return Text('This is the እንቅስቃሴዎች screen');
       case 3:
