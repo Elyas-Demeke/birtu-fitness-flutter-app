@@ -16,6 +16,50 @@ class BodyPart extends StatefulWidget {
 class _BodyPartState extends State<BodyPart> {
   double _borderRadius = 24;
   var  _containerColor =  Colors.white;
+  var _item;
+  @override
+  void initState() {
+    super.initState();
+    _item = widget.item;
+  }
+
+  List<Widget> _makeExcercises(excercises) {
+    List<Widget> widgets = [];
+    const maxItem = 3;
+    for (var i = 0; i < excercises.length; i++) {
+      if (i < maxItem) {
+        widgets.add(Text(
+          excercises[i]['excercise'],
+          style: const TextStyle(
+              color: Colors.black,
+              fontFamily: 'Avenir',
+              fontWeight: FontWeight.w300,
+              letterSpacing: .1,
+              fontSize: 15),
+        ));
+      }
+    }
+    return widgets;
+  }
+
+  List<Widget> _makeSets(excercises) {
+    List<Widget> widgets = [];
+    const maxItem = 3;
+    for (var i = 0; i < excercises.length; i++) {
+      if (i < maxItem) {
+        widgets.add(Text(
+          '${excercises[i]['sets']}x${excercises[i]['reps'] == double.infinity ? 'failure': excercises[i]['reps'] }',
+          style: const TextStyle(
+              color: Colors.black,
+              fontFamily: 'Avenir',
+              fontWeight: FontWeight.w900,
+              fontSize: 15),
+        ));
+      }
+    }
+    return widgets;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -82,7 +126,7 @@ class _BodyPartState extends State<BodyPart> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 Text(
-                                  widget.item.workoutName,
+                                  _item.workoutName,
                                   style: const TextStyle(
                                     color: Colors.black,
                                     fontFamily: 'Avenir',
@@ -92,7 +136,7 @@ class _BodyPartState extends State<BodyPart> {
                                 ),
                                 const SizedBox(height: 2),
                                 Text(                                  
-                                  "${widget.item.numberOfExcercises.toInt()} excercises",
+                                  "${_item.excercises.length} excercises",
                                   style: const TextStyle(
                                       color: Colors.black,
                                       fontFamily: 'Avenir',
@@ -147,98 +191,23 @@ class _BodyPartState extends State<BodyPart> {
                           child: Container(
                             padding: const EdgeInsets.fromLTRB(16, 0, 0, 0),
                             height: 72,
-                            child: const Column(
+                            child: Column(
                               mainAxisSize: MainAxisSize.min,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: <Widget>[
-                                Text(
-                                  'Squat . Barbell',
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontFamily: 'Avenir',
-                                      fontWeight: FontWeight.w300,
-                                      letterSpacing: .1,
-                                      fontSize: 15),
-                                ),
-                                Text(
-                                  'Glute Ham Raise',
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontFamily: 'Avenir',
-                                      fontWeight: FontWeight.w300,
-                                      letterSpacing: .1,
-                                      fontSize: 15),
-                                ),
-                                Text(
-                                  'Bulgarian Split Squat . Dumbbell',
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontFamily: 'Avenir',
-                                      fontWeight: FontWeight.w300,
-                                      letterSpacing: .1,
-                                      fontSize: 15),
-                                ),
-                                // const SizedBox(height: 16),
-                                // Row(
-                                //   children: <Widget>[
-                                //     const Icon(
-                                //       Icons.location_on,
-                                //       color: Colors.black,
-                                //       size: 16,
-                                //     ),
-                                //     const SizedBox(
-                                //       width: 8,
-                                //     ),
-                                //     Flexible(
-                                //       child: Text(
-                                //         item.location,
-                                //         style: const TextStyle(
-                                //           color: Colors.black,
-                                //           fontFamily: 'Avenir',
-                                //         ),
-                                //       ),
-                                //     ),
-                                //   ],
-                                // ),
-                              ],
+                              children: _makeExcercises(_item.excercises),
                             ),
                           ),
                         ),
 
                         // sets and reps
-                        const Expanded(
+                        Expanded(
                           flex: 1,
                           child: SizedBox(
                             height: 72,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  '3x3',
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontFamily: 'Avenir',
-                                      fontWeight: FontWeight.w900,
-                                      fontSize: 15),
-                                ),
-                                Text(
-                                  '3x3',
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontFamily: 'Avenir',
-                                      fontWeight: FontWeight.w900,
-                                      fontSize: 15),
-                                ),
-                                Text(
-                                  '3x3',
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontFamily: 'Avenir',
-                                      fontWeight: FontWeight.w900,
-                                      fontSize: 15),
-                                ),
-                              ],
+                              children: _makeSets(_item.excercises),
                             ),
                           ),
                         ),
@@ -248,14 +217,6 @@ class _BodyPartState extends State<BodyPart> {
                   Container(
                     margin: EdgeInsets.fromLTRB(0, 0, 24, 0),
                     alignment: Alignment.centerRight,
-                    // child: Text(
-                    //   'View all',
-                    //   style: const TextStyle(
-                    //       color: Colors.blue,
-                    //       fontFamily: 'Avenir',
-                    //       fontWeight: FontWeight.w300,
-                    //       fontSize: 15),
-                    // ),
                     child: TextButton(
                       onPressed: () {},
                       child: const Text(
@@ -279,22 +240,12 @@ class _BodyPartState extends State<BodyPart> {
 }
 
 class Workout {
-  // final String name;
-  // final String category;
-  // final String location;
-  // final double rating;
-  // final Color startColor;
-  // final Color endColor;
-
   final String workoutName;
   final double numberOfExcercises;
-  final List<dynamic> firstThreeExcercises; // elements will be objects with excercise and sets and reps as key value pairs
+  final List<dynamic> excercises; // elements will be objects with excercise and sets and reps as key value pairs
   final String workingMuscleImage;
-  /* Main app fields
 
-  */
-
-  Workout(this.workoutName, this.numberOfExcercises, this.firstThreeExcercises, this.workingMuscleImage);
+  Workout(this.workoutName, this.numberOfExcercises, this.excercises, this.workingMuscleImage);
 }
 
 class CustomCardShapePainter extends CustomPainter {

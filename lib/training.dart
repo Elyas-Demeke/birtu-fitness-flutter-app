@@ -11,14 +11,77 @@ class Training extends StatefulWidget {
 class _TrainingState extends State<Training> {
 
   var items = [
-    Workout('Lower Body Workout', 7, [{"test": '"test"'}],'image/link'),
-    Workout('Hamriyah Food Court', 6, [{"test": '"test"'}],'image/link'),
-    Workout('Gate of Food Court', 4, [{"test": '"test"'}],'image/link'),
-    Workout('Express Food Court', 5, [{"test": '"test"'}],'image/link'),
-    Workout('BurJuman Food Court', 4, [{"test": '"test"'}],'image/link'),
-    Workout('BurJuman Food Court', 6, [{"test": '"test"'}],'image/link'),
-    Workout('BurJuman Food Court', 7, [{"test": '"test"'}],'image/link'),
-    Workout('BurJuman Food Court', 6, [{"test": '"test"'}],'image/link'),
+    Workout('Lower Body Workout', 7, [
+      {
+        "excercise": 'Squat',
+        "sets": 3,
+        "reps": double.infinity
+      },
+      {
+        "excercise": 'Leg press',
+        "sets": 3,
+        "reps": double.infinity
+      },
+      {
+        "excercise": 'Leg extension',
+        "sets": 3,
+        "reps": double.infinity
+      },
+      {
+        "excercise": 'Hamstring curl',
+        "sets": 3,
+        "reps": double.infinity
+      },
+      ],'image/link'),
+    Workout('Hamriyah Food Court', 6, [
+      {
+        "excercise": 'Squat',
+        "sets": 3,
+        "reps": 3
+      },
+      ],'image/link'),
+    Workout('Gate of Food Court', 4, [
+      {
+        "excercise": 'Squat',
+        "sets": 3,
+        "reps": 4
+      },
+      ],'image/link'),
+    Workout('Express Food Court', 5, [
+      {
+        "excercise": 'Squat',
+        "sets": 3,
+        "reps": double.infinity
+      },
+      ],'image/link'),
+    Workout('BurJuman Food Court', 4, [
+      {
+        "excercise": 'Squat',
+        "sets": 3,
+        "reps": double.infinity
+      },
+      ],'image/link'),
+    Workout('BurJuman Food Court', 7, [
+      {
+        "excercise": 'Squat',
+        "sets": 3,
+        "reps": double.infinity
+      },
+      ],'image/link'),
+    Workout('BurJuman Food Court', 7, [
+      {
+        "excercise": 'Squat',
+        "sets": 3,
+        "reps": double.infinity
+      },
+      ],'image/link'),
+    Workout('BurJuman Food Court', 6, [
+      {
+        "excercise": 'Squat',
+        "sets": 3,
+        "reps": double.infinity
+      },
+      ],'image/link'),
   ];
   @override
   Widget build(BuildContext context) {
