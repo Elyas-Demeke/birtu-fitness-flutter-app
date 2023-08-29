@@ -46,6 +46,11 @@ class _TrainingState extends State<Training> {
         "sets": 3,
         "reps": 4
       },
+      {
+        "excercise": 'Squat',
+        "sets": 3,
+        "reps": 4
+      },
       ],'image/link'),
     Workout('Express Food Court', 5, [
       {

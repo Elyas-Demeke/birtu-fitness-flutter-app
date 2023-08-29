@@ -1,4 +1,3 @@
-import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import "dart:ui" as ui;
@@ -60,6 +59,11 @@ class _BodyPartState extends State<BodyPart> {
     return widgets;
   }
 
+  double _getHeight(excercises) {
+    double length = double.parse('${excercises.length}') > 3 ? 3 : double.parse('${excercises.length}'); 
+    return 24 * length;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -95,7 +99,7 @@ class _BodyPartState extends State<BodyPart> {
               },
               child: AnimatedContainer(
               duration: const Duration(milliseconds: 300),
-              height: 210,
+              height: 210 - double.parse('${3-(_item.excercises.length > 3 ? 3 : _item.excercises.length)}')*24,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(_borderRadius),
                 color: _containerColor
@@ -190,7 +194,7 @@ class _BodyPartState extends State<BodyPart> {
                           flex: 4,
                           child: Container(
                             padding: const EdgeInsets.fromLTRB(16, 0, 0, 0),
-                            height: 72,
+                            height: _getHeight(_item.excercises),
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -204,7 +208,7 @@ class _BodyPartState extends State<BodyPart> {
                         Expanded(
                           flex: 1,
                           child: SizedBox(
-                            height: 72,
+                            height: _getHeight(_item.excercises),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: _makeSets(_item.excercises),
